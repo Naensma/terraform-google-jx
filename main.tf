@@ -154,11 +154,15 @@ module "cluster" {
   cluster_name        = local.cluster_name
   cluster_location    = local.location
   cluster_network     = var.cluster_network
+  cluster_subnetwork  = var.cluster_subnetwork
+  cluster_range_name  = var.cluster_range_name
+  services_range_name = var.services_range_name
   cluster_id          = random_id.random.hex
   bucket_location     = var.bucket_location
   jenkins_x_namespace = var.jenkins_x_namespace
   force_destroy       = var.force_destroy
 
+  
   node_machine_type = var.node_machine_type
   node_disk_size    = var.node_disk_size
   node_disk_type    = var.node_disk_type

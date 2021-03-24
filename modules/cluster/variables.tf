@@ -17,6 +17,24 @@ variable "cluster_network" {
   default     = "default"
 }
 
+variable "cluster_subnetwork" {
+  description = "The name of the subnetwork (VPC) to which the cluster is connected"
+  type        = string
+  default     = ""
+}
+
+variable "cluster_range_name" {
+  description = "The ip range name for cluster nodes"
+  type        = string
+  default     = ""
+}
+
+variable "services_range_name" {
+  description = "The ip range name for services nodes"
+  type        = string
+  default     = ""
+}
+
 variable "cluster_name" {
   description = "Name of the Kubernetes cluster"
   type        = string

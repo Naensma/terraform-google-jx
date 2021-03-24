@@ -9,13 +9,19 @@ resource "google_container_cluster" "jx_cluster" {
   description             = "jenkins-x cluster"
   location                = var.cluster_location
   network                 = var.cluster_network
+  subnetwork              = var.cluster_subnetwork
   enable_kubernetes_alpha = var.enable_kubernetes_alpha
   enable_legacy_abac      = var.enable_legacy_abac
   enable_shielded_nodes   = var.enable_shielded_nodes
   initial_node_count      = var.min_node_count
   logging_service         = var.logging_service
   monitoring_service      = var.monitoring_service
-
+  
+  ip_allocation_policy {
+        cluster_secondary_range_name  = var.cluster_range_name
+        services_secondary_range_name = var.services_range_name
+  }
+  
   // should disable master auth
   master_auth {
     username = ""
